@@ -1,6 +1,6 @@
-#
 # Method 1: Iterative
-# For any number, we can check whether its ‘i’th bit is 0(OFF) or 1(ON) by bitwise ANDing it with “2^i” (2 raise to i).
+# For any number, we can check whether its ‘i’th bit is 0(OFF) or 1(ON) by bitwise
+#  ANDing it with “2^i” (2 raise to i).
 #
 # 1) Let us take number 'NUM' and we want to check whether it's 0th bit is ON or OFF
 #     bit = 2 ^ 0 (0th bit)
@@ -28,3 +28,25 @@
 # step 2: Right shift the number by 1 bit and recursive function call
 # step 3: Print the bits of number
 #
+
+input_int = int(input())
+
+stack = []
+
+
+def main(mynum):
+    stackem(mynum)
+    #print('\n' + str(bin(mynum)))
+
+
+def stackem(mynum):
+    if mynum >= 1:
+        stack.append(mynum)
+        stackem(mynum / 2)
+    if len(stack) > 0:
+        result = int(stack.pop() % 2)
+        print(result, end='')
+
+
+if __name__ == "__main__":
+    main(input_int)
